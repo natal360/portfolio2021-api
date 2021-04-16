@@ -34,14 +34,18 @@ async function runServer() {
 
 
   server.use(bodyParser.json());
-  server.use(bodyParser.urlencoded({
-    extended: true
-  }));
+  // server.use(bodyParser.urlencoded({
+  //   extended: true
+  // }));
   server.use('/api/v1/portfolios', require('./routes/portfolios'));
 
 
   server.get('/test', (req, res) => {
     res.json({ message: 'Hello World' });
+  })
+
+  server.get('', (req, res) => {
+    res.sendFile('index.html', { root: __dirname });
   })
 
   server.get('', (req, res) => {
