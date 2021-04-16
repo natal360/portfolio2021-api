@@ -32,7 +32,11 @@ const bodyParser = require('body-parser');
 async function runServer() {
   await require('./db').connect();
 
+
   server.use(bodyParser.json());
+  server.use(bodyParser.urlencoded({
+    extended: true
+  }));
   server.use('/api/v1/portfolios', require('./routes/portfolios'));
 
 
