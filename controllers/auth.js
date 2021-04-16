@@ -30,22 +30,22 @@ exports.checkRole = role => (req, res, next) => {
   }
 }
 
-const getAcceessToken = () => {
-  const options = {
-    methods: 'POST',
-    url: config.AUTH0_TOKEN_URL,
-    headers: { 'content-type': 'application/json' },
-    form: {
-      grant_type: 'client_credentials',
-      client_id: config.AUTH0_CLIENT_ID,
-      client_secret: config.AUTH0_CLIENT_SECRET,
-      audience: config.AUTH0_AUDIENCE
-    }
-  }
+// const getAcceessToken = () => {
+//   const options = {
+//     methods: 'POST',
+//     url: config.AUTH0_TOKEN_URL,
+//     headers: { 'content-type': 'application/json' },
+//     form: {
+//       grant_type: 'client_credentials',
+//       client_id: config.AUTH0_CLIENT_ID,
+//       client_secret: config.AUTH0_CLIENT_SECRET,
+//       audience: config.AUTH0_AUDIENCE
+//     }
+//   }
 
-  request(options, (error, res, body) => {
-    if (error) { console.error(error) }
+//   request(options, (error, res, body) => {
+//     if (error) { console.error(error) }
 
-    return JSON.parse(body);
-  })
-}
+//     return JSON.parse(body);
+//   })
+// }
